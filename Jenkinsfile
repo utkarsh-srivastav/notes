@@ -1,12 +1,19 @@
-node {
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+                steps {
+                        docker build -t getting-started .
 
-    checkout scm
+                }
+        }
+	    stage('Deploying'){
 
-    docker.withRegistry('https://crepantherx.jfrog.io/artifactory/docker/', 'jfrog') {
+		steps {
+			echo 'Deploying...'
+        }
+	    }
 
-        def customImage = docker.build("docker/apper")
 
-        /* Push the container to the custom Registry */
-        customImage.push()
     }
 }
