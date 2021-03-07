@@ -3,7 +3,11 @@ pipeline {
     stages {
         stage('Build') {
                 steps {
-                        docker build -t getting-started .
+			script{
+		docker build -t getting-started .
+			}
+			
+                        
 
                 }
         }
