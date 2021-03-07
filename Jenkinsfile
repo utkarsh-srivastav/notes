@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
                 steps {
-                        echo 'HTML DOCUMENTATION'
+                        docker build -t getting-started .
 
                 }
         }
