@@ -4,9 +4,9 @@ pipeline {
 	    stage('Build image') { // build and tag docker image
         steps {
             echo 'Starting to build docker image'
-	sh """docker build -t app ."""
+		script {
 		docker.build "app"
-
+		}
         }
     }
 
