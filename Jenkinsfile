@@ -5,7 +5,7 @@ pipeline {
         steps {
             echo 'Starting to build docker image'
 		script {
-docker.build "mycorp/myapp:${env.BUILD_TAG}"
+docker.build "app:${env.BUILD_TAG}"
 		}
         }
     }
