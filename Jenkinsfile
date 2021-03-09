@@ -6,8 +6,8 @@ pipeline {
             echo 'Starting to build docker image'
 		script {
 
-			"docker build blue ."
-			"docker login crepantherx.jfrog.io"
+			"docker build -t crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:${env.BUILD_ID} ."  
+
 		}
         }
     }
