@@ -6,8 +6,8 @@ pipeline {
             echo 'Starting to build docker image'
 		script {  
 			docker.withRegistry('https://crepantherx.jfrog.io', 'jfrog') {
-        			sh "docker build -t crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:v${env.BUILD_ID} ."
-				sh "docker push crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:v${env.BUILD_ID}"
+        			sh "docker build -t crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:v1.0.${env.BUILD_ID} ."
+				sh "docker push crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:v1.0.${env.BUILD_ID}"
     			}
 
 		}
