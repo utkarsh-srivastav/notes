@@ -1,2 +1,1 @@
-#Notes
-h
+# Hi, I am Sudhir Singh
