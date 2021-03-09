@@ -5,7 +5,7 @@ pipeline {
         steps {
             echo 'Starting to build docker image'
 		script {  
-			docker.withRegistry('crepantherx.jfrog.io', 'crepantherx-jfrog') {
+			docker.withRegistry('crepantherx.jfrog.io', 'jfrog') {
         			def customImage = "docker build -t crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:${env.BUILD_ID} ."
         			customImage.push()
     			}
