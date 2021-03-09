@@ -6,7 +6,7 @@ pipeline {
             echo 'Starting to build docker image'
 		script {
 
-			docker build blue .
+			"docker build blue ."
 		}
         }
     }
