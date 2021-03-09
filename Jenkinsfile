@@ -1,26 +1,22 @@
 pipeline {
     agent any
     stages {
-	    stage('Build image') { // build and tag docker image
-        steps {
-            echo 'Starting to build docker image'
-		script {  
-			docker.withRegistry('https://crepantherx.jfrog.io', 'jfrog') {
-        			sh "docker build -t crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:v1.0.${env.BUILD_ID} ."
-				sh "docker push crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:v1.0.${env.BUILD_ID}"
-    			}
-
-		}
-        }
-    }
-
-	    stage('Deploying'){
-
+	    stage('Build') { // build and tag docker image
 		steps {
-			echo 'Deploy'
-        }
+		    	script {  
+				sh "docker push crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:v1.0.${env.BUILD_ID}"
+		    	}
+		}
 	    }
 
-
+	    stage('Upload'){
+		steps {
+			script {  
+				docker.withRegistry('https://crepantherx.jfrog.io', 'jfrog') {
+					sh "docker push crepantherx.jfrog.io/techmahindra-docker-dev-local/todo:v1.0.${env.BUILD_ID}"
+				}
+			}
+		}
+	    }
     }
 }
