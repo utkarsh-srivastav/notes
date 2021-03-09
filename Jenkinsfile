@@ -7,6 +7,7 @@ pipeline {
 		script {
 
 			"docker build blue ."
+			"docker login crepantherx.jfrog.io"
 		}
         }
     }
