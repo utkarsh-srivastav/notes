@@ -12,7 +12,7 @@ pipeline {
 	    stage('Upload'){
 		steps {
 			script {  
-				docker.withRegistry('https://utkarsh233.jfrog.io', 'jfrog') {
+				docker.withRegistry('https://utkarsh233.jfrog.io', 'JFrog') {
 					sh "docker push utkarsh233.jfrog.io/techm-uttu/hello:1.0.${env.BUILD_ID}"
 				}
 			}
